@@ -1,18 +1,19 @@
 <h1>Plant Disease Detection using Machine Learning</h1>
 Table of Contents
-Introduction
-Features
-Tech Stack
-Architecture
-Machine Learning Models
-Data Augmentation
-Installation
-Usage
-API Endpoints
-Contributing
-License
-Acknowledgements
-
+<ul>
+<li>Introduction</li>
+<li>Features</li>
+<li>Tech Stack</li>
+<li>Architecture</li>
+<li>Machine Learning Models</li>
+<li>Data Augmentation</li>
+<li>Installation</li>
+<li>Usage</li>
+<li>API Endpoints</li>
+<li>Contributing</li>
+<li>License</li>
+<li>Acknowledgements</li>
+</ul>
 Introduction
 This project aims to help farmers and agricultural professionals detect diseases in plants using machine learning models. The web application allows users to upload images of plant leaves, which are then analyzed to predict the presence of any disease. The project focuses on detecting diseases in potato, tomato, and capsicum plants.
 
