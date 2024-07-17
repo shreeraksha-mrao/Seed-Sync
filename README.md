@@ -14,10 +14,10 @@ Table of Contents
 <li>License</li>
 <li>Acknowledgements</li>
 </ul>
-Introduction
+<h2>Introduction</h2>
 This project aims to help farmers and agricultural professionals detect diseases in plants using machine learning models. The web application allows users to upload images of plant leaves, which are then analyzed to predict the presence of any disease. The project focuses on detecting diseases in potato, tomato, and capsicum plants.
 
-Features
+<h2>Features</h2>
 Real-time disease detection for potato, tomato, and capsicum plants.
 User authentication and authorization using Auth0.
 Image upload functionality.
@@ -39,11 +39,11 @@ Architecture
 The application consists of a React.js frontend and an Express.js backend with a MongoDB database. Machine learning models are served using FastAPI and TensorFlow Serving. The user authentication is managed by Auth0.
 
 
-Machine Learning Models
+<h2>Machine Learning Models</h2>
 Model Architecture
 The core of the disease detection system is based on Convolutional Neural Networks (CNNs). The models were trained on a large dataset of plant leaf images and are capable of classifying multiple diseases with high accuracy.
 
-Training
+<h2>Training</h2>
 Dataset: The models were trained on publicly available plant disease datasets.
 Preprocessing: Images were resized, normalized, and augmented to enhance the robustness of the model.
 Architecture: A custom CNN architecture was used, optimized for the specific task of plant disease detection.
