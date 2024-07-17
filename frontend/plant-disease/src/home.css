@@ -1,0 +1,16 @@
+/* home.css */
+
+.home-content {
+    background-image: url('./static_img/seedsyncai.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px; /* Add padding to avoid overlapping with fixed navbar */
+    box-sizing: border-box;
+  }
+  

@@ -1,0 +1,41 @@
+/* navbar.css */
+
+.navbar {
+    background-color: rgba(64, 117, 19, 0.5);; /* Green background color */
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    padding: 6.5px;
+    z-index: 1000; /* Ensure navbar stays on top of other content */
+  }
+  
+  .navbar-nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .nav-item {
+    display: inline-block;
+  }
+  
+  .nav-link {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    position: relative; /* Ensure relative positioning */
+  }
+  
+  .nav-link:hover {
+    background-color: #859322; /* Dark grey background on hover */
+    color: black;
+    border-radius:12px;
+  }
+li.nav-item{
+  margin: 5px;
+}

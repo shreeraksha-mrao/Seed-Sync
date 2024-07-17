@@ -1,0 +1,178 @@
+/* PotatoPlantDisease.css */
+
+.Renderthispotato {
+    background-image: url('./static_img/c4.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px; /* Add padding to avoid overlapping with fixed navbar */
+    box-sizing: border-box;
+    position: relative; /* Needed for overlay positioning */
+}
+
+.Renderthispotato::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Black overlay with 40% opacity for fading effect */
+    z-index: -1; /* Ensure it stays behind other content */
+}
+
+.Renderthistomato {
+    background-image: url('./static_img/c2.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px; /* Add padding to avoid overlapping with fixed navbar */
+    box-sizing: border-box;
+    position: relative; /* Needed for overlay positioning */
+}
+
+.Renderthistomato::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Black overlay with 40% opacity for fading effect */
+    z-index: -1; /* Ensure it stays behind other content */
+}
+
+.Renderthiscapsicum {
+    background-image: url('./static_img/b2.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px; /* Add padding to avoid overlapping with fixed navbar */
+    box-sizing: border-box;
+    position: relative; /* Needed for overlay positioning */
+}
+
+.Renderthiscapsicum::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Black overlay with 40% opacity for fading effect */
+    z-index: -1; /* Ensure it stays behind other content */
+}
+
+.form-container {
+    background: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin-top: 50px;
+    color: white; /* Make the heading white */
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Add some space below the heading */
+}
+
+h2 {
+    margin-top: 0;
+    color: black; /* Make the heading black */
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Add some space below the heading */
+}
+
+.prediction-result {
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+
+.error-message {
+    color: red;
+    margin-top: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: blue; /* Make the label text blue */
+    text-align: center; /* Center the label text */
+    text-decoration: underline;
+}
+
+.custom-file-upload {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.custom-file-upload:hover {
+    background-color: #f0f0f0;
+}
+
+form input[type="file"] {
+    display: none;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
