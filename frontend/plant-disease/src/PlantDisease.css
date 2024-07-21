@@ -1,7 +1,7 @@
 /* PotatoPlantDisease.css */
 
 .Renderthispotato {
-    background-image: url('./static_img/c4.jpg'); /* Replace with your image path */
+    background-image: url('/static_img/c4.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -11,9 +11,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 60px 20px; /* Add padding to avoid overlapping with fixed navbar */
+    padding: 60px 20px; 
     box-sizing: border-box;
-    position: relative; /* Needed for overlay positioning */
+    position: relative;
 }
 
 .Renderthispotato::before {
@@ -28,7 +28,7 @@
 }
 
 .Renderthistomato {
-    background-image: url('./static_img/c2.jpg'); /* Replace with your image path */
+    background-image: url('/static_img/c2.jpg'); /* Replace with your image path */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -55,7 +55,7 @@
 }
 
 .Renderthiscapsicum {
-    background-image: url('./static_img/b2.jpg'); /* Replace with your image path */
+    background-image: url('/static_img/b2.jpg'); /* Replace with your image path */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

@@ -21,3 +21,11 @@ const userSchema = new mongoose.Schema({
 });
 
 export const User = mongoose.model('User',userSchema);
+
+const solutionSchema = new mongoose.Schema({
+  outcome: { type: String, required: true },
+  causeause: { type: String, required: true },
+  prevention: { type: String }
+});
+
+export const solution = mongoose.model('sol', solutionSchema);

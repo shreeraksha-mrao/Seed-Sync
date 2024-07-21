@@ -47,14 +47,13 @@ body {
   padding: 0;
   font-family: Arial, sans-serif;
   background-color: #f2f2f2; /* Light gray background */
-  background-image: url('./static_img/background.jpg'); /* Update path based on your project structure */
+  background-image: url('/static_img/background.jpg'); /* Update path based on your project structure */
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
   height: 100vh;
-  overflow: hidden;
-  position: relative; /* Ensure relative positioning for pseudo-element */
+  position: relative;
 }
 
 body::before {
@@ -152,4 +151,8 @@ body::before {
 
 .form-container button.secondary:hover {
   background-color: rgb(35, 72, 43); /* Darker green on hover */
+}
+
+.cause-result > * {
+  color: #333 !important;
 }

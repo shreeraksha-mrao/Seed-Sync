@@ -1,6 +1,6 @@
 import express from 'express'
 import connectDB from './config.js';
-import { User } from './model.js';
+import { solution, User } from './model.js';
 import cors from 'cors'
 
 const app = express();
@@ -88,6 +88,41 @@ app.post('/getData',async (req,res)=>{
   }catch(err){
     console.log(err);
     return res.status(400).json({message: "Failed to fetch data:" + err.message,data:''});
+  }
+})
+
+app.post('/puttodb', async(req,res) =>{
+  console.log("Aayo");
+  try{
+    const{outcome,causeause,prevention} = req.body;
+    if(!outcome || !causeause || !prevention){
+      throw new Error("Not sent the data. Remember !!!")
+    }
+
+    const responseSol = await solution.create({
+      outcome,causeause,prevention
+    })
+
+    return res.status(200).json({message:"Successfully posted the data into solution database",data:responseSol});
+
+  }catch(err){
+    console.log(err)
+    return res.status(400).json({message: "Failed to post data:" + err.message,data:''});
+  }
+})
+
+app.post('/getFromDB',async (req,res)=>{
+  try{
+    const {response} = req.body;
+    const solRes = await solution.findOne({outcome:response});
+
+    if(!solRes){
+      throw new Error("No solution found");
+    }
+    return res.status(200).json({message:"Successfully fetched the data",data:solRes });
+  }catch(err){
+      console.error(err);
+      return res.status(400).json({message:"unsuccessful", data:""})
   }
 })
 

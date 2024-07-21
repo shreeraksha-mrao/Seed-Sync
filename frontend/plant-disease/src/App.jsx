@@ -13,9 +13,8 @@ import About from './about';
 import { useAuth0 } from '@auth0/auth0-react';
 
 
-
-
 const PotatoPlantDisease = () => {
+  const [causes,setCauses] = useState(null);
   const [prediction, setPrediction] = useState(null);
   const [error, setError] = useState(null);
   const {user} = useAuth0();
@@ -34,16 +33,27 @@ const PotatoPlantDisease = () => {
       });
       setPrediction(response.data);
       console.log(response.data.class);
+      let a = response.data.class
+      let arr = a.split(' ')
 
-      const res2 = await axios.post('http://localhost:3000/incrementPotato',{
-        email: user.email,
-        response: `Potato_${response.data.class}`
+      let b = "Potato_" + arr[0] + "_" + arr[1]
+      if(user){
+          const res2 = await axios.post('http://localhost:3000/incrementPotato',{
+          email: user.email,
+          response: b
+        })
+        console.log(response.data.class)
+      }
+      const res3 = await axios.post('http://localhost:3000/getFromDB',{
+        response: response.data.class
       })
+
+      setCauses(res3.data.data)
       
       setError(null);
     } 
     catch (err) {
-      setError('Failed to predict the disease');
+      setError('Failed to predict the disease' + err);
       console.error(err);
     }
   };
@@ -67,6 +77,16 @@ const PotatoPlantDisease = () => {
             <p>Confidence: {prediction.confidence * 100}</p>
           </div>
         )}
+
+        {prediction?.class !== 'Healthy' && causes && (
+          <div className="cause-result">
+            <h3>Cause and Prevention:</h3>
+            <p>Causes: {causes.causeause}</p>
+            <p>Prevention: {causes.prevention}</p>
+          </div>
+        )}
+
+
         {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>
     </div>
@@ -74,6 +94,7 @@ const PotatoPlantDisease = () => {
 };
 
 const TomatoPlantDisease = () => {
+  const[causes, setCauses] = useState(null);
   const [prediction, setPrediction] = useState(null);
   const [error, setError] = useState(null);
   const {user} = useAuth0();
@@ -92,11 +113,19 @@ const TomatoPlantDisease = () => {
       });
       setPrediction(response.data);
       console.log(response.data.class);
+      
+      if(user){
 
-      const res2 = await axios.post('http://localhost:3000/incrementGeneral',{
-        email: user.email,
+        const res2 = await axios.post('http://localhost:3000/incrementGeneral',{
+          email: user.email,
+          response: response.data.class
+        })
+      }
+      const res3 = await axios.post('http://localhost:3000/getFromDB',{
         response: response.data.class
       })
+
+      setCauses(res3.data.data)
       
       setError(null);
     } 
@@ -125,13 +154,25 @@ const TomatoPlantDisease = () => {
             <p>Confidence: {prediction.confidence * 100}</p>
           </div>
         )}
+
+        {prediction?.class !== 'Tomato_healthy' && causes && (
+          <div className="cause-result">
+            <h3>Cause and Prevention:</h3>
+            <p>Causes: {causes.causeause}</p>
+            <p>Prevention: {causes.prevention}</p>
+          </div>
+        )}
+
         {error && <p style={{ color: 'red' }}>{error}</p>}
       </div>
     </div>
+
+    
   );
 };
 
 const CapsicumPlantDisease = () => {
+  const[causes,setCauses] = useState(null);
   const [prediction, setPrediction] = useState(null);
   const [error, setError] = useState(null);
   const {user} = useAuth0();
@@ -149,13 +190,22 @@ const CapsicumPlantDisease = () => {
       });
       setPrediction(response.data);
       console.log(response.data.class);
-
-      const res2 = await axios.post('http://localhost:3000/incrementGeneral',{
-        email: user.email,
+      
+      if(user){
+        const res2 = await axios.post('http://localhost:3000/incrementGeneral',{
+          email: user.email,
+          response: response.data.class
+        })
+      }
+      const res3 = await axios.post('http://localhost:3000/getFromDB',{
         response: response.data.class
       })
+
+      setCauses(res3.data.data)
       
       setError(null);
+      
+      
     } 
     catch (err) {
       setError('Failed to predict the disease');
@@ -181,6 +231,13 @@ const CapsicumPlantDisease = () => {
             <h3>Prediction Result:</h3>
             <p>Class: {prediction.class}</p>
             <p>Confidence: {prediction.confidence * 100}</p>
+          </div>
+        )}
+        {prediction?.class !== 'Pepper__bell___healthy' && causes && (
+          <div className="cause-result">
+            <h3>Cause and Prevention:</h3>
+            <p>Causes: {causes.causeause}</p>
+            <p>Prevention: {causes.prevention}</p>
           </div>
         )}
         {error && <p style={{ color: 'red' }}>{error}</p>}

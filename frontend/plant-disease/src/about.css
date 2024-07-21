@@ -8,7 +8,7 @@
     margin-top: 4.6em;
 }
 .image{
-    background: url("./static_img/aboutus.jpg") center/cover no-repeat;
+    background: url("/static_img/aboutus.jpg") center/cover no-repeat;
 }
 .content{
   /* background :white; */
