@@ -26,7 +26,7 @@ const PotatoPlantDisease = () => {
     formData.append('file', imageFile);
 
     try {
-      const response = await axios.post('http://localhost:8000/predict/potato', formData, {
+      const response = await axios.post('https://fastapi-2-w5iq.onrender.com/predict/potato', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -38,13 +38,13 @@ const PotatoPlantDisease = () => {
 
       let b = "Potato_" + arr[0] + "_" + arr[1]
       if(user){
-          const res2 = await axios.post('http://localhost:3000/incrementPotato',{
+          const res2 = await axios.post('https://server-g9yl.onrender.com/incrementPotato',{
           email: user.email,
           response: b
         })
         console.log(response.data.class)
       }
-      const res3 = await axios.post('http://localhost:3000/getFromDB',{
+      const res3 = await axios.post('https://server-g9yl.onrender.com/getFromDB',{
         response: response.data.class
       })
 
@@ -106,7 +106,7 @@ const TomatoPlantDisease = () => {
     formData.append('file', imageFile);
 
     try {
-      const response = await axios.post('http://localhost:8000/predict/tomato', formData, {
+      const response = await axios.post('https://fastapi-2-w5iq.onrender.com/predict/tomato', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -116,12 +116,12 @@ const TomatoPlantDisease = () => {
       
       if(user){
 
-        const res2 = await axios.post('http://localhost:3000/incrementGeneral',{
+        const res2 = await axios.post('https://server-g9yl.onrender.com/incrementGeneral',{
           email: user.email,
           response: response.data.class
         })
       }
-      const res3 = await axios.post('http://localhost:3000/getFromDB',{
+      const res3 = await axios.post('https://server-g9yl.onrender.com/getFromDB',{
         response: response.data.class
       })
 
@@ -183,7 +183,7 @@ const CapsicumPlantDisease = () => {
     formData.append('file', imageFile);
 
     try {
-      const response = await axios.post('http://localhost:8000/predict/capsicum', formData, {
+      const response = await axios.post('https://fastapi-2-w5iq.onrender.com/predict/capsicum', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -192,12 +192,12 @@ const CapsicumPlantDisease = () => {
       console.log(response.data.class);
       
       if(user){
-        const res2 = await axios.post('http://localhost:3000/incrementGeneral',{
+        const res2 = await axios.post('https://server-g9yl.onrender.com/incrementGeneral',{
           email: user.email,
           response: response.data.class
         })
       }
-      const res3 = await axios.post('http://localhost:3000/getFromDB',{
+      const res3 = await axios.post('https://server-g9yl.onrender.com/getFromDB',{
         response: response.data.class
       })
 
@@ -252,7 +252,7 @@ const App = () => {
   useEffect(()=>{
       const makeRequest = async() =>
       {
-        const res = await axios.post("http://localhost:3000/login",{
+        const res = await axios.post("https://server-g9yl.onrender.com/login",{
           email: user?.email,
           name: user?.name
         })
