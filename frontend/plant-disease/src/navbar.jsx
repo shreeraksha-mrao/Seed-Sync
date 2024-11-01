@@ -33,7 +33,7 @@ export const Navbar = () => {
           <li className="nav-item">
           <Link to="/dashboard" className="nav-link">Dashboard</Link>
           </li>
-          <li className="nav-item">
+          <li style = {{color:'#5b52c2'}} className="nav-item">
           Hello, {user.name}
           </li>
           <li className="nav-item logbuton"> <LogoutButton /> </li>

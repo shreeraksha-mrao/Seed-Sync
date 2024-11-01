@@ -1,3 +1,4 @@
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -54,6 +55,7 @@ body {
   background-position: center;
   height: 100vh;
   position: relative;
+
 }
 
 body::before {
@@ -94,12 +96,9 @@ body::before {
   color: #666; /* Gray font color */
 }
 
-.form-container {
-  background-color: white /* Semi-transparent white background */
-  /* position: relative; Ensure z-index stacking context */
-  /* z-index: 1; Place form container above pseudo-element */}
 
-.form-container label {
+
+/*.form-container label {
   display: block;
   margin-bottom: 10px;
   font-weight: bold;
@@ -113,15 +112,15 @@ body::before {
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
-  background-color: #9CDBA6; /* Light green background for inputs */
-  color: black; /* Black font color for inputs */
-  text-align: center; /* Center align text */
-  vertical-align: middle; /* Align vertically middle */
+  background-color: #9CDBA6; 
+  color: black; 
+  text-align: center; 
+  vertical-align: middle; 
 }
 
 .form-container input::placeholder {
-  color: black; /* Black placeholder text color */
-  opacity: 0.6; /* Adjust opacity as desired */
+  color: black; 
+  opacity: 0.6; 
 }
 
 .form-container button {
@@ -129,8 +128,8 @@ body::before {
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: rgb(51, 106, 63); /* Green button */
-  color: black !important; /* Black font color for buttons */
+  background-color: rgb(51, 106, 63); 
+  color: black !important;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -138,11 +137,11 @@ body::before {
 }
 
 .form-container button:hover {
-  background-color: rgb(35, 72, 43); /* Darker green on hover */
+  background-color: rgb(35, 72, 43); 
 }
 
 .form-container button.secondary {
-  background-color: rgb(51, 106, 63); /* Green button for secondary actions */
+  background-color: rgb(51, 106, 63); 
   margin-top: 10px;
   width: 296px;
   font-size: small;
@@ -150,9 +149,55 @@ body::before {
 }
 
 .form-container button.secondary:hover {
-  background-color: rgb(35, 72, 43); /* Darker green on hover */
+  background-color: rgb(35, 72, 43); 
 }
 
 .cause-result > * {
   color: #333 !important;
+}*/
+
+/* .form-container {
+  background-color: white;
+  margin-right: 17rem; 
+  margin-left: 0;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 300px; 
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+}
+
+.form-container label {
+  text-align: left;
+  width: 100%;
+}
+
+.form-container input[type="file"] {
+  width: 100%;
+} */
+
+.prediction-result, .cause-result {
+  text-align: left; /* Left align the results */
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+
+/* Ensure the root container doesn't restrict width */
+#root {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  text-align: right; /* Right align content */
+}
+
+/* Update button width to match container */
+.form-container button {
+  width: 100%;
+  
 }

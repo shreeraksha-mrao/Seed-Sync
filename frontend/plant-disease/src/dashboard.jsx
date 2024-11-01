@@ -3,23 +3,32 @@ import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import axios from 'axios';
 import { useAuth0 } from '@auth0/auth0-react';
+import toast, { Toaster } from 'react-hot-toast';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const BarChart = () => {
   const [data, setData] = useState(null);
+  const [loading,setLoading] = useState(true)
   const { user } = useAuth0();
 
   useEffect(() => {
     const fetchData = async () => {
       if (user?.email) {
+        const toastId = toast.loading('Loading data...');
         try {
-          const res = await axios.post('http://localhost:3000/getData', {
+          const res = await axios.post('https://server-1-dbo2.onrender.com/getData', {
             email: user.email
           });
           setData(res.data.data);
+          setLoading(false)
+          toast.dismiss(toastId);
+          toast.success('Data loaded successfully!');
         } catch (err) {
           console.log(err);
+          toast.dismiss(toastId);
+          setLoading(false)
+          toast.error('Failed to load data');
         }
       }
     };
@@ -133,11 +142,11 @@ const BarChart = () => {
     }
   };
 
-  const navbarHeight = 129.13; // Adjust this to match your actual navbar height
+  const navbarHeight = 129.13;
 
   return (
-    <div className="chart-container" style={{ width: '100vw', height: `calc(100vh - ${navbarHeight}px)`, display: 'flex', justifyContent: 'center', paddingTop:100 }}>
-      {data ? <Bar style={{ width: '90vw' }} data={chartData} options={options} /> : <div>No data to display</div>}
+    <div className="chart-container" style={{ width: '100vw', height: `calc(100vh - ${navbarHeight}px)`, display: 'flex', justifyContent: 'center', paddingTop: 100 }}>
+      {data ? <Bar style={{ width: '90vw' }} data={chartData} options={options} /> :!loading && <div>No data to display</div>}
     </div>
   );
 };
