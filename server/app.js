@@ -9,11 +9,13 @@ app.use(express.json())
 
 connectDB();
 
-app.use(cors({credentials: true, origin: "*"}))
+app.use(cors({credentials: true, origin: "https://seedsyncai.vercel.app/"}))
 
-//Login route
+app.get('/ping',async (req,res)=>{ //health check route 
+  res.send("App is working properly")
+});
+
 app.post('/login', async (req,res)=>{
-
   try{
 
     const { name , email} = req.body;
@@ -37,7 +39,6 @@ app.post('/incrementPotato', async (req, res) => {
   try {
     const { email, response } = req.body;
 
-    console.log(email, response)
     if (!email || !response) {
       throw new Error('No email or No response');
     }
@@ -46,8 +47,6 @@ app.post('/incrementPotato', async (req, res) => {
     if (!foundUser) {
       throw new Error("No user found");
     }
-    console.log(foundUser[response]);
-    console.log(response);
     foundUser[response] = foundUser[response] + 1;
     const updatedUser = await foundUser.save();
     return res.status(200).json({ message: 'Column incremented successfully', user: updatedUser });

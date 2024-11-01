@@ -3,7 +3,6 @@ import './home.css';
 import { useAuth0 } from '@auth0/auth0-react';
 
 export const Home = () => {
-  const { user } = useAuth0();
   const [currentSubheading, setCurrentSubheading] = useState(0);
   const [exiting, setExiting] = useState(false);
   const subheadings = [
