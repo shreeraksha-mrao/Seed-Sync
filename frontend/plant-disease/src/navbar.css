@@ -1,7 +1,7 @@
 /* navbar.css */
 
 .navbar {
-    background-color: rgba(0, 0, 0, 0.5);; /* Green background color */
+    background-color: rgba(64, 117, 19, 0.5);; /* Green background color */
     overflow: hidden;
     width: 100%;
     position: fixed;
@@ -32,7 +32,7 @@
   }
   
   .nav-link:hover {
-    background-color: #55564f; /* Dark grey background on hover */
+    background-color: #859322; /* Dark grey background on hover */
     color: black;
     border-radius:12px;
   }

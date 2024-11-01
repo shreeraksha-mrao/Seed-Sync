@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
   Pepper__bell___healthy:{type: Number, default:0}
 });
 
-export const User = mongoose.model('User',userSchema); //users
+export const User = mongoose.model('User',userSchema);
 
 const solutionSchema = new mongoose.Schema({
   outcome: { type: String, required: true },
@@ -28,4 +28,4 @@ const solutionSchema = new mongoose.Schema({
   prevention: { type: String }
 });
 
-export const solution = mongoose.model('sol', solutionSchema); //sols
+export const solution = mongoose.model('sol', solutionSchema);
