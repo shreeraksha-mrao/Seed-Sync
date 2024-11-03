@@ -147,5 +147,83 @@
     After training, the model is evaluated using the test dataset, which it hasn't seen during training or validation. This allows us to gauge its ability to generalize and accurately classify real-world, unseen data.
 </p>
 
+<h1>Deploying an ML Model Using FastAPI</h1>
 
+<p>This project utilizes <strong>FastAPI</strong> to deploy a machine learning model for plant disease detection.</p>
+
+<p><strong>FastAPI</strong> is a modern, high-performance web framework for building APIs with Python. It is designed for rapid development, featuring automatic generation of interactive API documentation (using Swagger UI) and support for asynchronous programming.</p>
+
+<p>FastAPI is chosen for its high performance and ease of use, allowing for quick development of APIs.</p>
+
+
+<h1>Web Phase</h1>
+<img src = "https://i.imgur.com/HAt5Pyy.jpeg">
+
+<p>This project is a web application developed using the MERN stack (MongoDB, Express.js, React.js, Node.js) to provide access to a machine learning model. The application features user authentication and a personalized dashboard for authenticated users.</p>
+
+<h2>Features</h2>
+    <ul>
+        <li><strong>MongoDB</strong>: Utilized two models:
+            <ul>
+                <li><strong>User Model</strong>: Stores user details for authentication and user management.</li>
+                <li><strong>SOL Model</strong>: Handles data related to causes and prevention.</li>
+            </ul>
+        </li>
+        <li><strong>Authentication</strong>: Implemented using <strong>Auth0</strong>, ensuring secure access for users.</li>
+        <li><strong>Backend</strong>: Built with <strong>Express.js</strong> to handle server-side logic and API routes.</li>
+        <li><strong>Frontend</strong>: Developed with <strong>React.js</strong>, leveraging its capabilities to create a seamless single-page application experience. This choice simplifies the user interface and enhances performance.</li>
+        <li><strong>User Dashboard</strong>: Created a dedicated dashboard for authenticated users, allowing them to access personalized information and interact with the machine learning model.</li>
+    </ul>
+
+<h1>Web Deployment</h1>
+
+<p>Deploying SeedSync AI presented a series of challenges and valuable learning experiences. After successfully launching our model server, we still needed to set up two additional servers to complete the deployment process.</p>
+
+<ul>
+    <li><strong>AWS EC2 and SSL Dilemma:</strong> Initially, we deployed our infrastructure on AWS EC2 instances. However, we encountered a requirement from Auth0 for SSL certificates, prompting us to seek a secure setup.</li>
+    
+<li><strong>Vercel for Frontend:</strong> To address the SSL issue for the frontend, we transitioned it to Vercel, which offered free SSL certificates. This streamlined our process and ensured secure HTTPS access.</li>
+    
+<li><strong>Mixed Content Issue:</strong> Despite this progress, we faced mixed content errors due to the remaining two servers lacking HTTPS. This resulted in certain elements not loading securely, affecting overall functionality.</li>
+    
+<li><strong>Nginx and Self-Signed SSL:</strong> Our next approach involved using self-signed SSL certificates with Nginx. Unfortunately, this method led to browser warnings regarding untrusted certificates, requiring users to manually accept them.</li>
+    
+<li><strong>Render for Backend:</strong> Ultimately, we deployed the backend on Render, which simplified server management and scaling, ensuring smoother operation.</li>
+</ul>
+
+
+<h1>Future Enhancements</h1>
+
+<ul>
+    <li><strong>Scalability with AWS Elastic Beanstalk, Auto Scaling Groups, and Load Balancers:</strong>
+        <p>If increased scalability is required, the application could be enhanced with <strong>AWS Elastic Beanstalk</strong> to streamline deployment, <strong>Auto Scaling Groups</strong> to automatically adjust instance count based on traffic, and <strong>Load Balancers</strong> to evenly distribute traffic across instances, ensuring consistent performance and reliability.</p>
+    </li>
+
+ <li><strong>Efficient Model Deployment with TensorFlow Serving and Docker:</strong>
+        <p>Future deployments could incorporate <strong>TensorFlow Serving</strong> in <strong>Docker</strong> containers, providing a production-ready setup with quick model updates and minimal downtime. This would enable smoother version management and scalability for model services.</p>
+    </li>
+
+<li><strong>Input Validation for Leaf Detection:</strong>
+        <p>As an enhancement, a preliminary image validation step could be introduced to verify that uploaded images are leaf images. This check would help maintain model accuracy and prevent incorrect predictions on non-leaf images.</p>
+    </li>
+
+<li><strong>Expansion to Additional Crops:</strong>
+        <p>Currently, the model supports disease detection for three crops: <em>Solanum lycopersicum</em> (Tomato), <em>Solanum tuberosum</em> (Potato), and <em>Capsicum annuum</em> (Capsicum). Further crops could be integrated into the model to broaden its applicability across diverse agricultural sectors.</p>
+    </li>
+    
+<li><strong>Backend Hosting Optimization:</strong>
+        <p>Currently, the backend server is hosted on <strong>Render</strong>, which experiences a ~5-minute delay in restarting if the server goes idle. To improve reliability, the backend could be migrated to an <strong>EC2 instance</strong> on AWS. This would also allow for implementing HTTPS (after purchasing a domain) to avoid mixed content issues with <strong>Auth0</strong> authentication.</p>
+    </li>
+</ul>
+<h1>Conclusion</h1>
+<p>
+SeedSync AI: fighting plant diseases, leaf by leaf! With smart tech, we’re helping farmers grow better crops and worry less. Here’s to a greener, healthier future!
+</p>
+<h1>Link to Website</h1>
+<p>
+    You can access the live website here: <a href="https://seedsyncai.vercel.app/" target="_blank">SeedSyncAI</a>
+</p>
+<p>
+    <strong>Note:</strong> As the backend is hosted on Render, there may be a startup delay of up to 5 minutes if the server has entered a cool-down state. Please allow time for the server to restart as needed.
+</p>
 
